@@ -113,6 +113,7 @@ def sentenciadb(query): #ejecución de sentencia a la base de datos, como insert
     return "OK"  #si todo va bien devolvemos un ok confirmando la ejecucion
 
 
+#agregando un comentario
 def main():
     web.internalerror = web.debugerror
     app.run()
