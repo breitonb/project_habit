@@ -38,7 +38,8 @@ Segundo Requerimiento, Servicio "Me Gusta":
 
                                   DIAGRAMA ENTIDAD REALICIÓN SERVICIO ME GUSTA
 
-![image](https://user-images.githubusercontent.com/94751889/142776772-5afdd5ae-fa86-4408-b6c5-0b3317bdf999.png)
+![image](https://user-images.githubusercontent.com/94751889/142780318-6f275b87-8bee-49f0-ae74-8566b9f6981f.png)
+
 
 Creación tabla user:
 CREATE TABLE "user" ( id int(9) NOT NULL, username varchar(25) NOT NULL, first_name varchar(50) NOT NULL, last_name varchar(50) NOT NULL, email varchar(244) NOT NULL, state tinyint(1) NOT NULL, PRIMARY KEY(id, username) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
