@@ -12,6 +12,13 @@ Instalación:
 3. pip3 install pymysql ó pip3 install PyMySQL.
 4. pip3 install json  #por lo general viene instalado en las versiones de python.
 
+Ejecución de aplicación.
+
+Para ejecutar la aplicación, nos ubicamos en la carpeta habi y escribimos en la terminal.
+python habi.py 8080
+Con esto la api queda activo para recibir cualquier petición rest, ajax o petición por navegador.
+Para probar se puede ir al navegador y poner http://localhost:8080/habi
+
 Las pruebas de la aplicación fueron realizadas en python 3, sin embargo también puede funcionar en python 2, realizando unas pocas adecuaciones.
 
 Primer Requerimiento, Servicio Consulta:
