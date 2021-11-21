@@ -64,4 +64,4 @@ Puntos Extras:
 mejorar la velocidad de las consultas, se espera un diagrama y la explicación de porque
 lo modelaste de esa forma.
 
-Rta: La tabla property, debería tener una columna con el estado, ya que esto es una propiedad del inmueble y aunque este cambié, solo debería tener un estado actual, el cual podría cambiar y este si debería estan en la tabla status_history solo para llevar un log de cambio de estados, con esto se podría hacer una consulta directa a la tabla y la generación de la información sería mas rápida.
+Rta: Para este punto sugiero que el estado debe de ser un dato de la tabla property, por tal motivo se debería agregar la columna state en la tabla property ya que es una propiedad del inmueble, con esto, se harían lectura solo a la tabla property y a la tabla status, esto hace que la consulta se genere mas rápido y en status_history solo quedaría el logs de los estados del inmueble.
