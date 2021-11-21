@@ -12,30 +12,37 @@ Instalación:
 3. pip3 install pymysql ó pip3 install PyMySQL.
 4. pip3 install json  #por lo general viene instalado en las versiones de python.
 
-Dudas: 
+Primer Requerimiento, Servicio Consulta:
 
+Para este primer requerimiento, empece a trabajar en la estructura de los datos que debía entregar a la api, para esto, estudie primero las tablas y arme los datos que debía entregar, esto me tomo algo de tiempo ya que la estructura de la tabla property tenía el estado en otra tabla(status_history) y este dato se repetia tantas veces haya cambiado el estado, esto hace que tenga que realizar lectura a 3 tablas, para obtener el resultado esperado, en mi opinión, el estado debe de ser un dato de la tabla property, ya que es una propiedad del inmueble, con esto, se harían lectura solo a la tabla property y a la tabla status, esto hace que la consulta se genere mas rápido y en status_history, debería quedar ese dato pero como log.
 
-Dudas Resueltas:
+A continuación, realaciono print de las pruebas realizadas, con los filtros solicitados.
 
+Prueba 1: Consultando los datos sin filtro, solo los estados permitidos.
+![image](https://user-images.githubusercontent.com/94751889/142778745-22c41134-9cfa-4231-96e1-485d8f1ac238.png)
 
+Prueba 2: Consulta datos, con filtro de ciudad.
+![image](https://user-images.githubusercontent.com/94751889/142778786-da41ae5d-7b2f-4a3e-a8e3-06e824cfb596.png)
 
+Prueba 3: Consultado datos, con filtro de ciudad y año.
+![image](https://user-images.githubusercontent.com/94751889/142778808-ad2f5b10-22c3-4c12-a6ea-8ef557cd1551.png)
 
-Primer Requerimiento:
+Prueba 4: Consultado datos, aplicando todos los filtros permitidos.
+![image](https://user-images.githubusercontent.com/94751889/142778881-1ee4c9a0-ba09-4a03-a827-becc4e6f295b.png)
 
+En todas las pruebas, se esta generando información en archivo json, con los datos solicitados y un dato adicional que es el id del inmueble.
 
+Segundo Requerimiento, Servicio "Me Gusta":
 
-Segundo Requerimiento:
+                                  DIAGRAMA ENTIDAD REALICIÓN SERVICIO ME GUSTA
 
 ![image](https://user-images.githubusercontent.com/94751889/142776772-5afdd5ae-fa86-4408-b6c5-0b3317bdf999.png)
 
 Creación tabla user:
- 
-CREATE TABLE "user" ( id int(9) NOT NULL, username varchar(25) NOT NULL, first_name varchar(50) NOT NULL, last_name varchar(50) NOT NULL, email varchar(244) NOT NULL, state tinyint(1) NOT NULL, PRIMARY KEY(id, username) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; 
-Creación tabla property:
-CREATE TABLE "property" ( id int(11) NOT NULL, address varchar(120) NOT NULL, city varchar(32) NOT NULL, price bigint(20) NOT NULL, description text NOT NULL, year int(4) NOT NULL, PRIMARY KEY(id) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; 
+CREATE TABLE "user" ( id int(9) NOT NULL, username varchar(25) NOT NULL, first_name varchar(50) NOT NULL, last_name varchar(50) NOT NULL, email varchar(244) NOT NULL, state tinyint(1) NOT NULL, PRIMARY KEY(id, username) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
+
 Creación tabla like_property:
 CREATE TABLE "like_property" ( id int(9) NOT NULL, id_user int(9) NOT NULL, id_property int(11) NOT NULL, action enum('', 'like', 'do not like') NOT NULL, last_update datetime NOT NULL, PRIMARY KEY(id) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; 
-
 
 Incluyendo información en tabla user:
 INSERT INTO user (id, username, first_name, last_name, email, state) VALUES (1,"breitonb","Breiton","Bustos Bustos","breitonb_16@hotmail.com",1);
@@ -46,6 +53,7 @@ INSERT INTO property (id, address, city, price, description, year) VALUES (1, "c
 Incluyendo información en tabla like_property:
 INSERT INTO like_property  (id, id_user, id_property, action, last_update) VALUES (1, 1, 1, 'like', '2021-11-21 12:00:00');
 
+Para el segundo requerimiento y teniendo en cuenta la estructura de las tablas, es necesario crear una tabla user, para registrar información del usuario que interactura con la aplicación y una tabla de like_property, para registrar información de los productos de interes del usuario, esta tabla debe ser alterna ya que a un usuario le pueden gustar muchos productos y esta información debe quedar almacenada en la base de datos.
 
 Puntos Extras:
 
