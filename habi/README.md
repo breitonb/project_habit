@@ -2,15 +2,17 @@
 
 Tecnologías usadas:
 1. python 3
-2. web.py
-3. pymysql
-4. json
+2. web.py  https://webpy.org/
+3. pymysql  https://pypi.org/project/PyMySQL/
+4. json  https://docs.python.org/es/3/library/json.html
 
 Instalación:
 1. Para Instalar python3 se puede descargar el paquete completo en https://www.anaconda.com/products/individual 
 2. pip3 install web.py.
 3. pip3 install pymysql ó pip3 install PyMySQL.
 4. pip3 install json  #por lo general viene instalado en las versiones de python.
+
+Las pruebas de la aplicación fueron realizadas en python 3, sin embargo también puede funcionar en python 2, realizando unas pocas adecuaciones.
 
 Primer Requerimiento, Servicio Consulta:
 
